@@ -18,4 +18,7 @@ export default {
     margin: 0;
     padding: 0;
   }
+  html{
+    font-size: 10px;
+  }
 </style>
