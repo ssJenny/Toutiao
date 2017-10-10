@@ -9,6 +9,7 @@
         <div class="search iconfont icon-icon15"></div>
     </header>
     <tab></tab>
+    <router-view></router-view>
 
 
   </div>
