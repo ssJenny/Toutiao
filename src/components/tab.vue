@@ -1,10 +1,8 @@
 <template>
   <div class="tab">
-    <div class="item-ul">
       <router-link v-for="(value,key) in tabList" class="tab-item" tag="div" :class="{actice: value.id==1}" :to="value.link" :key="value.id"  >
         <span class="tab-link">{{value.name}}</span>
       </router-link>
-    </div>
     <span class="add iconfont icon-add"></span>
   </div>
 </template>
@@ -22,7 +20,6 @@
     created() {
       vm = this;
       vm.tabList = getTabList();
-      console.log(vm.tabList)
     },
     methods: {
     }
@@ -37,13 +34,11 @@
     width: 100%;
     background-color: #f4f5f6;
     overflow: hidden;
-    position: relative;
+    position: fixed;
     white-space:nowrap;
-  }
-  .item-ul{
+    top: 4rem;
     overflow: hidden;
-    height: 3rem;
-    overflow-x: scroll;
+    z-index: 100;
     .tab-item{
       float: left;
       white-space: nowrap;
@@ -51,13 +46,12 @@
       .tab-link{
         padding: 0 1rem 0 1rem;
       }
-      /*&.router-link-active{*/
-        /*!*.tab-link{*!*/
-          /*color: #f85959;*/
-        /*!*}*!*/
-      /*}*/
+      &.router-link-active{
+        color: #f85959;
+      }
     }
   }
+
 
   .add{
     display: inline-block;
