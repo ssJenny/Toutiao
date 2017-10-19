@@ -45,3 +45,11 @@ export function getMilitary() {
   return jsonp(url, data,options)
 
 }
+
+export function getVideo() {
+  const url = 'https://m.toutiao.com/list/';
+
+  const data = commonParams;
+  data.tag = 'video';
+  return jsonp(url, data,options)
+}
