@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <scroller :on-infinite="infinite" :on-refresh="refresh">
+    <scroller :on-infinite="infinite" :on-refresh="refresh" ref="hotScroll">
       <div class="group" v-for="hot in hotList">
         <section v-for="hotItem in hot">
           <div class="list-item">
@@ -60,13 +60,20 @@
           if(vm.hotlist.length === 0) {
             vm.noData = "没有更多数据";
           }else {
-
+            vm.$store.commit("addHot",vm.hotlist)
           }
-        })
+          vm.$refs.hotScroll.resize();
+          done();
+        },1500)
       },
 
       refresh(done) {
+        setTimeout( () => {
+          vm._getHot();
+          vm.$store.commit("addHot",vm.hotlist);
 
+          done();
+        })
       }
 
     }
