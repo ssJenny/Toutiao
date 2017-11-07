@@ -8,8 +8,8 @@
   </div>
 </template>
 <script>
-  import Tab from "components/tab";
-  import MHeader from "components/header.vue";
+  import Tab from "@/components/tab";
+  import MHeader from "@/components/header.vue";
 
   export  default {
     name: 'index',

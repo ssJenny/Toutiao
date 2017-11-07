@@ -1,5 +1,5 @@
 
-import jsonp from 'assets/js/jsonp'
+import jsonp from './jsonp'
 import {commonParams,options} from './config'
 
 export function getRecommend() {
@@ -39,7 +39,6 @@ export function getSociety() {
 
 export function getMilitary() {
   const url = 'https://m.toutiao.com/list/';
-
   const data = commonParams;
   data.tag = 'news_military';
   return jsonp(url, data,options)

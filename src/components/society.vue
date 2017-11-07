@@ -20,7 +20,7 @@
 <script>
   var vm ;
 
-  import {getSociety} from "assets/js/getImfor.js";
+  import {getSociety} from "../assets/js/getImfor.js";
   import VueScroller from "vue-scroller";
   import Vue from "vue";
   Vue.use(VueScroller);
@@ -78,5 +78,5 @@
 </script>
 
 <style scoped lang="less" rel="stylesheet/less">
-  @import "~assets/less/list.less";
+  @import "../assets/less/list.less";
 </style>

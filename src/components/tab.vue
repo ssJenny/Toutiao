@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import {getTabList} from "assets/js/tabList.js";
+  import {getTabList} from "../assets/js/tabList.js";
   var vm;
   export default {
     name: 'tab',

@@ -1,66 +1,66 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
-import Recommend from '@/components/recommend'
-import Video from '@/components/video'
-import Hot from '@/components/hot'
-import Society from '@/components/society'
-import Entertainment from '@/components/entertainment'
-import Military from '@/components/military'
-
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
-
-
 Vue.use(VueAxios, axios);
 Vue.use(Router);
+
+Router.prototype.goBack = function () {
+  this.isBack = true;
+  this.go(-1);
+}
 
 export default new Router({
   routes: [
     {
       path: '/',
       name: 'Index',
-      component: Index,
+      component: resolve => { require(['@/components/index'], resolve); },
       children:[
         {
           path: '/',
           name: 'Recommend',
-          component: Recommend,
+          component: resolve => { require(['@/components/recommend'], resolve); },
           redirect: '/recommend'
         },
         {
           path: '/recommend',
           name: 'recommend',
-          component: Recommend
+          component: resolve => { require(['@/components/recommend'], resolve); }
         },
         {
           path: '/video',
           name: 'video',
-          component: Video
+          component: resolve => { require(['@/components/video'], resolve); }
         },
         {
           path: '/hot',
           name: 'hot',
-          component: Hot
+          component: resolve => { require(['@/components/hot'], resolve); }
         },
         {
           path: '/society',
           name: 'society',
-          component: Society
+          component: resolve => { require(['@/components/society'], resolve); }
         },
         {
           path: '/entertainment',
           name: 'entertainment',
-          component: Entertainment
+          component: resolve => { require(['@/components/entertainment'], resolve); }
         },
         {
           path: '/military',
           name: 'military',
-          component: Military
+          component: resolve => { require(['@/components/military'], resolve); }
         },
 
       ]
     },
+    {
+      path: '/:tag_id/info',
+      name: 'info',
+      component: resolve => { require(['@/components/detail'], resolve); }
+    }
   ]
 })

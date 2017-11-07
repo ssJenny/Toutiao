@@ -1,4 +1,3 @@
-import Vue from 'Vue'
 
 const mutations = {
   addRecommend(state, recommend) {

@@ -2,7 +2,7 @@
   <div class="container">
     <scroller :on-infinite="infinite" :on-refresh="refresh" ref="recommendScroll">
       <div class="group" v-for="recommend in recommendList">
-        <section v-for="item in recommend">
+        <section v-for="item in recommend" @click="goInfo(item.tag_id)">
           <div class="list-item">
             <h2 class="title">{{item.title}}</h2>
             <ul class="imgs" v-if="item.has_image">
@@ -19,7 +19,7 @@
 
 <script>
   var vm;
-  import {getRecommend} from "assets/js/getImfor.js";
+  import {getRecommend} from "../assets/js/getImfor.js";
   import VueScroller from 'vue-scroller'
   import Vue from 'vue'
   Vue.use(VueScroller);
@@ -73,11 +73,15 @@
           vm.$store.commit('addRecommend', vm.recommend);
           done();
         },1500);
+      },
+
+      goInfo(id) {
+        vm.$router.push({path: id + '/info'})
       }
     },
   }
 
 </script>
 <style scoped lang="less" rel="stylesheet/less">
-  @import "~assets/less/list.less";
+  @import "../assets/less/list.less";
 </style>
